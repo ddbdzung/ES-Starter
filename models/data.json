@@ -1,0 +1,46 @@
+{
+  "status": "ok",
+  "totalResults": 281,
+  "articles": [
+    {
+      "source": {
+      "id": "techcrunch",
+      "name": "TechCrunch"
+      },
+      "author": "laura.safran",
+      "title": "Meet the fintech taking on legacy technology in the capital markets - TechCrunch",
+      "description": "Moore’s Law observes that the number of transistors on a microchip doubles every two years, while its cost is halved over the same period of time. It has provided exponential growth in processing power for the past few decades, allowing many applications to i…",
+      "url": "https://techcrunch.com/sponsor/clear-street/meet-the-fintech-taking-on-legacy-technology-in-the-capital-markets/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2022/09/FINAL-TechCrunch-Hero-Image-01.png?resize=1200,800",
+      "publishedAt": "2023-01-24T01:37:39Z",
+      "content": "Moores Law observes that the number of transistors on a microchip doubles every two years, while its cost is halved over the same period of time. It has provided exponential growth in processing powe… [+6406 chars]"
+      },
+      {
+      "source": {
+      "id": "techcrunch",
+      "name": "TechCrunch"
+      },
+      "author": "Mike Butcher",
+      "title": "Tech Nation looks for new home as UK Gov hands tech ecosystem contract to Barclays - TechCrunch",
+      "description": "After over ten years in operation, Tech Nation, the UK’s government-sanctioned ecosystem builder for UK tech startups and growth tech companies is to cease operations after losing its grant funding to a programme run by Barclays Bank Eagle Labs. The team behi…",
+      "url": "https://techcrunch.com/2023/01/31/tech-nation-looks-for-new-home-as-uk-gov-hands-tech-ecosystem-contract-to-barclays/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2023/01/Tech-Nation-team.jpg",
+      "publishedAt": "2023-01-31T12:06:04Z",
+      "content": "After over ten years in operation, Tech Nation, the UKs government-sanctioned ecosystem builder for UK tech startups and growth tech companies is to cease operations after losing its grant funding to… [+5555 chars]"
+      },
+      {
+      "source": {
+      "id": "techcrunch",
+      "name": "TechCrunch"
+      },
+      "author": "Kyle Wiggers",
+      "title": "Portside lands $50M to help manage business aviation - TechCrunch",
+      "description": "Portside, which develops software to help businesses run aviation operations efficiently, has raised over $50 million in a funding round.",
+      "url": "https://techcrunch.com/2023/02/01/portside-50m-business-aviation-startup/",
+      "urlToImage": "https://techcrunch.com/wp-content/uploads/2022/02/GettyImages-1130968101.jpg?resize=1200,798",
+      "publishedAt": "2023-02-01T13:00:22Z",
+      "content": "Business aviation operators are often challenged with crew and aircraft shortages as they look to scale and meet the growing post-pandemic demand for air travel. With industry-wide staffing shortages… [+3862 chars]"
+      }
+      
+  ]
+  }
