@@ -1,17 +1,17 @@
 const httpStatus = require('http-status')
 
-const ApiError = require('../helpers/ApiError')
 const catchAsync = require('../helpers/catchAsync')
 const { errorResponseSpecification } = require('../helpers/errorResponse')
 const httpResponse = require('../helpers/httpResponse')
-const pick = require('../helpers/pick')
 const postService = require('../services/post.service')
+
+const defaultIndex = 'demo'
 
 const importPorts = catchAsync(async (req, res) => {
   const q = 'technology'
   const sources = 'techcrunch'
   const domains = 'https://techcrunch.com/'
-  const data = await postService.getNews(q, sources, domains)
+  const data = await postService.generateMockNews(q, sources, domains)
 
   res.json(data)
 })
@@ -28,7 +28,13 @@ const createPosts = catchAsync(async (req, res) => {
   }))
 
   try {
-    await postService.saveNewsToMongoDB(cleanArticles)
+    const rawPostsInDB = await postService.savePostsToMongoDB(cleanArticles)
+    const cleanPostsInDB = rawPostsInDB.map(post => {
+      const { __v, _id, ...cleanedPost } = post._doc
+      cleanedPost.id = _id.toString()
+      return cleanedPost
+    })
+    await postService.insertToES(defaultIndex, cleanPostsInDB)
 
     httpResponse(res, httpStatus.CREATED, httpStatus[201])
   } catch (err) {
@@ -36,14 +42,25 @@ const createPosts = catchAsync(async (req, res) => {
   }
 })
 
-const test = catchAsync(async (req, res) => {
-  const temp = await postService.test()
+const updatePost = catchAsync(async (req, res) => {
+  const { post } = req.body
+  const { id } = req.params
+  if (post.hasOwnProperty('id')) {
+    delete post.id
+  }
 
-  res.send(temp)
+  try {
+    await postService.updateToESById(defaultIndex, id, post)
+    await postService.updatePostById(id, post)
+
+    httpResponse(res, httpStatus.OK, httpStatus[200])
+  } catch (err) {
+    errorResponseSpecification(err, res, [httpStatus.NOT_FOUND])
+  }
 })
 
 module.exports = {
   importPorts,
   createPosts,
-  test,
+  updatePost,
 }

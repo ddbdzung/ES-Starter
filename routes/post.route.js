@@ -7,7 +7,7 @@ const postController = require('../controllers/post.controller')
 const router = express.Router()
 
 router.get(`/mocks`, postController.importPorts)
-router.get(`/test`, postController.test)
+router.put(`/:id`, postController.updatePost)
 router.post(`/`, postController.createPosts)
 
 module.exports = router

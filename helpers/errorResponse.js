@@ -1,7 +1,5 @@
 const httpStatus = require('http-status')
 
-const { config } = require('../validations/index.js')
-
 /**
  * Return immediately error response with status code and message thrown from api error
  * @param {object} res response object
@@ -27,10 +25,10 @@ const errorResponseSpecification = (err, res, codeArr = []) => {
   const { statusCode, message } = err
   // Morgan will catch error from here for logging in terminal server
   res.locals.errorMessage = message
-  if (config.nodeEnv === 'development' || process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     console.log(err)
   }
-  if (config.nodeEnv === 'test' || process.env.NODE_ENV === 'test') {
+  if (process.env.NODE_ENV === 'test') {
     // eslint-disable-next-line no-console
     // console.log(err.message)
   }
